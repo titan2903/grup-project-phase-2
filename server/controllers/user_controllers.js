@@ -5,12 +5,14 @@ const jwt = require('jsonwebtoken')
 class UserControllers {
 
     static login(req, res) {
+        console.log(req.body)
         User.findOne({
                 where: {
                     username: req.body.username
                 }
             })
             .then(user => {
+                console.log(user)
                 let message = 'username / password salah'
                 if (!user) {
                     res.status(400).json(message)

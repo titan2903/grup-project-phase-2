@@ -1,5 +1,6 @@
 $(document).ready(() => {
-    if (localStorage.getItem('token')) {
+    console.log(localStorage.getItem('token'))
+    if (!localStorage.getItem('token') || localStorage.getItem('token') !== '') {
         $('#link_search').hide()
         $('#register').hide()
         $('#search_movie').hide()
@@ -63,6 +64,40 @@ $(document).ready(() => {
             })
             .fail(err => {
                 $('#error').append(`<div class="alert alert-danger" role="alert"> Error register dari server: ${err} </div>`)
+            })
+    })
+
+    $('#formLogin').submit((e) => {
+        e.preventDefault()
+
+        let username = $('#login_username').val()
+        let password = $('#login_password').val()
+
+        console.log({
+            username,
+            password
+        })
+
+        $.ajax({
+                method: 'POST',
+                url: 'http://localhost:3000/users/login',
+                data: {
+                    username: username,
+                    password: password
+                }
+            })
+            .done(result => {
+                $('#register').hide()
+                $('#login').hide()
+                $('#search_movie').show()
+                $('#movie-list').show()
+
+                localStorage.setItem('token', result.token)
+
+                $('#success').append(`<div class="alert alert-success" role="alert"> User berhasil masuk </div>`)
+            })
+            .fail(err => {
+                $('#error').append(`<div class="alert alert-danger" role="alert"> Error login dari server: ${err} </div>`)
             })
     })
 })
