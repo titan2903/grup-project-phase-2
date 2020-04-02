@@ -1,6 +1,6 @@
 $(document).ready(() => {
     console.log(localStorage.getItem('token'))
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token') || localStorage.getItem('token') !== '') {
         $('#link_search').hide()
         $('#register').hide()
         $('#search_movie').hide()
