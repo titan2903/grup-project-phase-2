@@ -23,11 +23,16 @@
             <div class="navbar-nav">
                 <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
                 <a class="nav-item nav-link active" id="link_search" href="#">Search Movies</a>
-                <a class="nav-item nav-link active" id="link_register" href="#">Sign Up</a>
-                <a class="nav-item nav-link active" id="link_login" href="#">Sign In</a>
+                <a class="nav-item nav-link active" id="link_register" href="#" onclick="register()">Sign Up</a>
+                <a class="nav-item nav-link active" id="link_login" href="#" onclick="login()">Sign In</a>
             </div>
         </div>
     </nav>
+
+    <div id="error">
+    </div>
+    <div id="success">
+    </div>
 
     <!-- Form Sign Up -->
 
@@ -35,14 +40,14 @@
         <div class="row mt-3 justify-content-center">
             <div class="col-md-8">
                 <h1 class="text-center">Sign Up</h1>
-                <form id="formRegister">
+                <form id="formRegister" method="POST">
                     <div class="form-group">
                         <label for="register_email">Email address</label>
                         <input type="email" class="form-control" id="register_email" placeholder="Email@example.com">
                     </div>
                     <div class="form-group">
                         <label for="register_email">Username</label>
-                        <input type="email " class="form-control " id="register_email1" placeholder="Username">
+                        <input type="email " class="form-control " id="register_username" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="register_password ">Password</label>
@@ -62,7 +67,7 @@
         <div class="row mt-3 justify-content-center">
             <div class="col-md-8">
                 <h1 class="text-center">Sign In</h1>
-                <form id="formLogin">
+                <form id="formLogin" method="POST">
                     <div class="form-group">
                         <label for="login_email">Username</label>
                         <input type="email " class="form-control " id="login_email1" placeholder="Username">
@@ -83,7 +88,7 @@
         </div>
     </div>
 
-    <div class="container " id="">
+    <div class="container " id="search_movie">
         <div class="row mt-3 justify-content-center ">
             <div class="col-md-8 ">
                 <h1 class="text-center ">Search Movie</h1>
@@ -108,7 +113,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js " integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=" anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
-    <script src="js/script.js "></script>
+    <script src="./asset/script/main.js"></script>
 </body>
 
 </html>
