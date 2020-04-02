@@ -2,7 +2,6 @@ const axios = require('axios');
 require('dotenv').config();
 
 class APIControllers {
-
     static omdb(req, res) {
         const title = req.params.title
 
@@ -19,6 +18,7 @@ class APIControllers {
                     message: err
                 })
             })
+
     }
 }
 
