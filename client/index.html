@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Movie List</title>
 </head>
@@ -17,29 +16,81 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Orion Movie</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-                <a class="nav-item nav-link active" href="#">Search Movies</a>
-                <!-- <a class="nav-item nav-link" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+                <a class="nav-item nav-link active" id="link_search" href="#">Search Movies</a>
+                <a class="nav-item nav-link active" id="link_register" href="#">Sign Up</a>
+                <a class="nav-item nav-link active" id="link_login" href="#">Sign In</a>
             </div>
         </div>
     </nav>
 
+    <!-- Form Sign Up -->
 
-    <div class="container">
+    <div class="container" id="register">
         <div class="row mt-3 justify-content-center">
             <div class="col-md-8">
-                <h1 class="text-center">Search Movie</h1>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Movie title..." id="search-input">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="search-button">Search</button>
+                <h1 class="text-center">Sign Up</h1>
+                <form id="formRegister">
+                    <div class="form-group">
+                        <label for="register_email">Email address</label>
+                        <input type="email" class="form-control" id="register_email" placeholder="Email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register_email">Username</label>
+                        <input type="email " class="form-control " id="register_email1" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register_password ">Password</label>
+                        <input type="password" class="form-control" id="register_password" placeholder="Password">
+                    </div>
+                    <center>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Sign In -->
+
+    <div class="container" id="login">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Sign In</h1>
+                <form id="formLogin">
+                    <div class="form-group">
+                        <label for="login_email">Username</label>
+                        <input type="email " class="form-control " id="login_email1" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login_password ">Password</label>
+                        <input type="password" class="form-control" id="login_password" placeholder="Password">
+                    </div>
+                    <center>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </center>
+                </form>
+                <br>
+                <center>
+                    <p> Sign In with Google </p>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="container " id="">
+        <div class="row mt-3 justify-content-center ">
+            <div class="col-md-8 ">
+                <h1 class="text-center ">Search Movie</h1>
+                <div class="input-group mb-3 ">
+                    <input type="text " class="form-control " placeholder="Movie title... " id="search-input ">
+                    <div class="input-group-append ">
+                        <button class="btn btn-outline-secondary " type="button " id="search-button ">Search</button>
                     </div>
                 </div>
             </div>
@@ -49,20 +100,15 @@
     <hr>
 
 
-    <div class="row" id="movie-list">
+    <div class="row " id="movie-list ">
 
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js " integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=" anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script src="js/script.js "></script>
 </body>
 
 </html>
