@@ -160,6 +160,10 @@ $(document).ready(() => {
     })
         .done(holiday => {
             // console.log(holiday);
+            $('#register').hide()
+                $('#login').hide()
+                $('#search_movie').show()
+                $('#movie-list').show()
             holiday.forEach(el => {
                 // console.log(el.name);
                 let date = new Date(el.date.iso).toDateString()
@@ -196,7 +200,14 @@ function onSignIn(googleUser) {
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-      console.log('User signed out.');
+        console.log('User signed out.');
+        $('#link_search').hide()
+        $('#link_search_google').hide()
+        $('#register').hide()
+        $('#search_movie').hide()
+        $('#movie-list').hide()
+        $('#search_google').hide()
+        $('#search_list').hide()
       localStorage.removeItem('token')
     });
   }
