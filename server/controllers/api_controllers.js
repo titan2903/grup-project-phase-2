@@ -10,12 +10,12 @@ class APIControllers {
                 url: `http://www.omdbapi.com/?apikey=${process.env.API_OMDb}&s=${title}`
             })
             .then((result) => {
-                console.log(result)
+                // console.log(result)
                 res.status(200).json(result.data)
             })
             .catch(err => {
                 res.status(500).json({
-                    message: err
+                    message: `internal server error`
                 })
             })
     }
