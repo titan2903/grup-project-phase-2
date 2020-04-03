@@ -7,6 +7,6 @@ router.get('/holidays/:ISOcountry/:year', Auth, Controller.holiday)
 
 router.get('/google_search/:search', Auth, Controller.googleSearch)
 
-router.get('/movies/:title', Auth, Controller.omdb)
+router.get('/movies/:title', Controller.omdb)
 
 module.exports = router

@@ -9,10 +9,9 @@
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="./asset/style/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    
+
 
     <!-- Google OAuth -->
     <meta name="google-signin-client_id" content="606999719099-urdmclon9g18j6es9ocvf9qpc9j6el09.apps.googleusercontent.com">
@@ -24,12 +23,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="https://www.flaticon.com/premium-icon/icons/svg/564/564158.svg" width="30" height="30"
-                class="d-inline-block align-top" alt="play">
-            Orion Movies ┃
+            <img src="https://www.flaticon.com/premium-icon/icons/svg/564/564158.svg" width="30" height="30" class="d-inline-block align-top" alt="play"> Orion Movies ┃
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -112,46 +108,45 @@
             <div class="col-md-8 ">
                 <h1 class="text-center ">Search Movie</h1>
                 <div class="input-group mb-3 ">
-                    <input type="text " class="form-control " placeholder="Movie title... " id="search-input ">
+                    <input type="text " class="form-control" placeholder="Movie title..." id="search-input">
                     <div class="input-group-append ">
-                        <button class="btn btn-outline-secondary " type="button " id="search-button ">Search</button>
+                        <button class="btn btn-outline-secondary " type="button " id="search-button">Search</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-  <hr>
-  
-  <!-- Show Movies -->
+    <hr>
+
+    <!-- Show Movies -->
     <div class="container col-md-10">
         <div class="row" id="movie-list">
-
-    <div class="row " id="movie-list ">
-
+        </div>
     </div>
+
     <!-- Search with google -->
     <div class="container " id="search_google">
-        <div class="row mt-3 justify-content-center ">
-            <div class="col-md-8 ">
-                <h1 class="text-center ">Search Cinema</h1>
-                <div class="input-group mb-3 ">
-                    <input type="text " class="form-control" placeholder="Keyword Search" id="search_input">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Search Cinema</h1>
+                <div class="input-group mb-3">
+                    <input type="text " class="form-control" value="Cinema XXI" id="search_input">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary " type="button " onclick="search_google()">Search</button>
+                        <button class="btn btn-outline-secondary" type="button" onclick="search_google()">Search</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container " id="search_list">
+    <div class="container" id="search_list">
     </div>
 
-    <div class="container " id="holiday">
-        <div class="row mt-3 justify-content-center ">
-            <div class="col-md-8 ">
-                <h1 class="text-center ">Holidays</h1>
+    <div class="container" id="holiday">
+        <div class="row mt-3 justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Holidays</h1>
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
@@ -166,21 +161,15 @@
         </div>
     </div>
 
-  
-
-
-
-
     <!-- Modal Show Detail Movie-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detail Movies</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                 </div>
                 <div class="modal-body">
                     ...

@@ -59,15 +59,26 @@ $(document).ready(() => {
     }
 
     google = () => {
-            $('#register').hide()
-            $('#login').hide()
-            $('#search_movie').hide()
-            $('#movie-list').hide()
-            $('#search_google').show()
-            $('#search_list').show()
-            $('#holiday').hide()
-        }
-        //Regisster
+        $('#register').hide()
+        $('#login').hide()
+        $('#search_movie').hide()
+        $('#movie-list').hide()
+        $('#search_google').show()
+        $('#search_list').show()
+        $('#holiday').hide()
+    }
+
+    holiday = () => {
+        $('#register').hide()
+        $('#login').hide()
+        $('#search_movie').hide()
+        $('#movie-list').hide()
+        $('#search_google').hide()
+        $('#search_list').hide()
+        $('#holiday').show()
+    }
+
+    //Regisster
 
     $('#formRegister').submit((e) => {
         e.preventDefault()
@@ -125,6 +136,12 @@ $(document).ready(() => {
                 $('#search_movie').show()
                 $('#movie-list').show()
                 $('#holiday').hide()
+                $('#link_search').show()
+                $('#link_search_google').show()
+                $('#link_logout').show()
+                $('#link_holiday').show()
+                $('#link_register').hide()
+                $('#link_login').hide()
 
                 localStorage.setItem('token', result.token)
 
@@ -137,12 +154,17 @@ $(document).ready(() => {
 
     //search
     search_google = () => {
+        $('#search_list').html('')
+
         let key = $('#search_input').val()
             // console.log(key)
 
         $.ajax({
                 method: 'GET',
-                url: `http://localhost:3000/api/google_search/${key}`
+                url: `http://localhost:3000/api/google_search/${key}`,
+                headers: {
+                    token: localStorage.getItem('token')
+                }
             })
             .done(result => {
                 let data = ``
@@ -161,6 +183,12 @@ $(document).ready(() => {
                 $('#error').append(`<div class="alert alert-danger" role="alert"> Error login dari server: ${err} </div>`)
             })
     }
+
+    $('#search_input').on('keyup', function(event) {
+        if (event.which === 13) {
+            search_google()
+        }
+    })
 
     // AJAX HOLIDAY
     holiday = () => {
@@ -196,28 +224,31 @@ $(document).ready(() => {
                 console.log(err);
             })
     }
-    
-     function searchMovies() {
+
+    //search movies
+    function searchMovies() {
+        $('#success').html('')
+        $('#error').html('')
         $('#movie-list').html('')
 
         let id = $('#search-input').val()
         $.ajax({
-            url: `http://localhost:3000/api/movies/${id}`,
-            type: 'GET'
-        })
-            .done(function (result) {
+                url: `http://localhost:3000/api/movies/${id}`,
+                type: 'GET'
+            })
+            .done(function(result) {
                 // console.log(result)
                 let movies = result.Search
-                // console.log(movies)
-                $.each(movies, function (i, data) {
+                    // console.log(movies)
+                $.each(movies, function(i, data) {
                     $('#movie-list').append(`
                     <div class="container col-md-4">
                         <div class="card mb-3">
-                            <img class="card-img-top" src="`+ data.Poster + `" alt="Card image cap">
+                            <img class="card-img-top" src="` + data.Poster + `" alt="Card image cap">
                             <div class="card-body">
-                            <h5 class="card-title">`+ data.Title + `</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">`+ data.Year + `</h6>
-                            <a href="#" class="card-link see-detail" data-toggle="modal" data-target="#exampleModal" data-id="`+ data.imdbID + `"><button type="button" class="btn btn-outline-info">See Detail</button></a>
+                            <h5 class="card-title">` + data.Title + `</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">` + data.Year + `</h6>
+                            <a href="#" class="card-link see-detail" data-toggle="modal" data-target="#exampleModal" data-id="` + data.imdbID + `"><button type="button" class="btn btn-outline-info">See Detail</button></a>
                             </div>
                         </div>
                     </div>
@@ -226,52 +257,52 @@ $(document).ready(() => {
 
                 $('#search-input').val('')
             })
-            .fail(function (err) {
+            .fail(function(err) {
                 $('#message').text(`Error GET Movies form Server: ${err}`)
             })
     }
 
 
-    $('#search-button').on('click', function () {
+    $('#search-button').on('click', function() {
         searchMovies()
     })
 
-    $('#search-input').on('keyup', function (event) {
+    $('#search-input').on('keyup', function(event) {
         if (event.which === 13) {
             searchMovies()
         }
     })
 
 
-    $('#movie-list').on('click', '.see-detail', function () {
+    $('#movie-list').on('click', '.see-detail', function() {
         let imdbid = $(this).data('id')
         $.ajax({
-            url: `http://localhost:3000/imdbid/movies/${imdbid}`,
-            type: 'GET'
-        })
-            .done(function (movie) {
+                url: `http://localhost:3000/imdbid/movies/${imdbid}`,
+                type: 'GET'
+            })
+            .done(function(movie) {
                 if (movie.Response === "True") {
 
                     $('.modal-body').html(`
                     <div class="container-fluid">
                         <div class="row">
                             <div align="center" class="col-md-12">
-                                <img src="`+ movie.Poster + `" class="img-fluid"
+                                <img src="` + movie.Poster + `" class="img-fluid"
                             </div>
                             <br><br>
                             <div calss="col-md-12">
                                 <ul class="list-group">
-                                <li class="list-group-item"><h3>`+ movie.Title + `</h3></li>
-                                <li class="list-group-item"><h6>Rating: `+ movie.Ratings[0].Value + `</h6></li>
-                                    <li class="list-group-item"><h6>Runtime: `+ movie.Runtime + `</h6></li>
-                                    <li class="list-group-item"><h6>Released: `+ movie.Released + `</h6></li>
-                                    <li class="list-group-item"><h6>Language: `+ movie.Language + `</h6></li>
-                                    <li class="list-group-item"><h6>Genre: `+ movie.Genre + `</h6></li>
-                                    <li class="list-group-item"><h6>Director: `+ movie.Director + `</h6></li>
-                                    <li class="list-group-item"><h6>Actors: `+ movie.Actors + `</h6></li>
-                                    <li class="list-group-item"><h6>Writer: `+ movie.Writer + `</h6></li>
-                                    <li class="list-group-item"><h6>Plot: `+ movie.Plot + `</h6></li>
-                                    <li class="list-group-item"><h6>Production: `+ movie.Production + `</h6></li>
+                                <li class="list-group-item"><h3>` + movie.Title + `</h3></li>
+                                <li class="list-group-item"><h6>Rating: ` + movie.Ratings[0].Value + `</h6></li>
+                                    <li class="list-group-item"><h6>Runtime: ` + movie.Runtime + `</h6></li>
+                                    <li class="list-group-item"><h6>Released: ` + movie.Released + `</h6></li>
+                                    <li class="list-group-item"><h6>Language: ` + movie.Language + `</h6></li>
+                                    <li class="list-group-item"><h6>Genre: ` + movie.Genre + `</h6></li>
+                                    <li class="list-group-item"><h6>Director: ` + movie.Director + `</h6></li>
+                                    <li class="list-group-item"><h6>Actors: ` + movie.Actors + `</h6></li>
+                                    <li class="list-group-item"><h6>Writer: ` + movie.Writer + `</h6></li>
+                                    <li class="list-group-item"><h6>Plot: ` + movie.Plot + `</h6></li>
+                                    <li class="list-group-item"><h6>Production: ` + movie.Production + `</h6></li>
                                 </ul>
                             </div>
                         </div> 
@@ -306,8 +337,13 @@ function signOut() {
         auth2.signOut().then(function() {
             console.log('User signed out.');
 
+
             $('#link_search').hide()
             $('#link_search_google').hide()
+            $('#link_logout').hide()
+            $('#link_holiday').hide()
+            $('#link_register').show()
+            $('#link_login').show()
             $('#register').hide()
             $('#search_movie').hide()
             $('#movie-list').hide()
@@ -321,6 +357,10 @@ function signOut() {
     } else {
         $('#link_search').hide()
         $('#link_search_google').hide()
+        $('#link_logout').hide()
+        $('#link_holiday').hide()
+        $('#link_register').show()
+        $('#link_login').show()
         $('#register').hide()
         $('#search_movie').hide()
         $('#movie-list').hide()
