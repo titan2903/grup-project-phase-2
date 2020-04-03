@@ -131,6 +131,9 @@ $(document).ready(() => {
                 }
             })
             .done(result => {
+                $('#login_username').val('')
+                $('#login_password').val('')
+
                 $('#register').hide()
                 $('#login').hide()
                 $('#search_movie').show()
@@ -324,6 +327,19 @@ function onSignIn(googleUser) {
         },
         statusCode: {
             200: function(response) {
+
+                $('#register').hide()
+                $('#login').hide()
+                $('#search_movie').show()
+                $('#movie-list').show()
+                $('#holiday').hide()
+                $('#link_search').show()
+                $('#link_search_google').show()
+                $('#link_logout').show()
+                $('#link_holiday').show()
+                $('#link_register').hide()
+                $('#link_login').hide()
+
                 console.log('>> response Signin Google', response.token);
                 localStorage.setItem('token', response.token)
             }
