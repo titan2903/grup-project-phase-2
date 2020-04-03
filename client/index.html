@@ -24,28 +24,35 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-                <a class="nav-item nav-link active" id="link_register" href="#">Sign Up</a>
-                <a class="nav-item nav-link active" id="link_login" href="#">Sign In</a>
-                <a class="nav-item nav-link active" id="link_search" href="#">Search Movies</a>
-                <a class="nav-item nav-link active" id="link_holiday" href="#">Holidays</a>
+
+                <a class="nav-item nav-link active" id="link_search" href="#" onclick="movie()">Search Movies</a>
+                <a class="nav-item nav-link active" id="link_search_google" href="#" onclick="google()">Search Cinema</a>
+                <a class="nav-item nav-link active" id="link_register" href="#" onclick="register()">Sign Up</a>
+                <a class="nav-item nav-link active" id="link_login" href="#" onclick="login()">Sign In</a>
             </div>
         </div>
     </nav>
 
-    <!-- Form Sign Up -->
 
+    <div id="error">
+    </div>
+    <div id="success">
+    </div>
+
+    <!-- Form Sign Up -->
     <div class="container" id="register">
         <div class="row mt-3 justify-content-center">
             <div class="col-md-8">
                 <h1 class="text-center">Sign Up</h1>
-                <form id="formRegister">
+
+                <form id="formRegister" method="POST">
                     <div class="form-group">
                         <label for="register_email">Email address</label>
                         <input type="email" class="form-control" id="register_email" placeholder="Email@example.com">
                     </div>
                     <div class="form-group">
                         <label for="register_email">Username</label>
-                        <input type="email " class="form-control " id="register_email1" placeholder="Username">
+                        <input type="email " class="form-control " id="register_username" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="register_password ">Password</label>
@@ -65,10 +72,10 @@
         <div class="row mt-3 justify-content-center">
             <div class="col-md-8">
                 <h1 class="text-center">Sign In</h1>
-                <form id="formLogin">
+                <form id="formLogin" method="POST">
                     <div class="form-group">
                         <label for="login_email">Username</label>
-                        <input type="email " class="form-control " id="login_email1" placeholder="Username">
+                        <input type="email " class="form-control " id="login_username" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="login_password ">Password</label>
@@ -88,7 +95,7 @@
         </div>
     </div>
 
-    <div class="container " id="">
+    <div class="container " id="search_movie">
         <div class="row mt-3 justify-content-center ">
             <div class="col-md-8 ">
                 <h1 class="text-center ">Search Movie</h1>
@@ -122,11 +129,30 @@
 
     <hr>
 
-    
 
     <div class="row " id="movie-list ">
 
     </div>
+    <!-- Search with google -->
+    <div class="container " id="search_google">
+        <div class="row mt-3 justify-content-center ">
+            <div class="col-md-8 ">
+                <h1 class="text-center ">Search Cinema</h1>
+                <div class="input-group mb-3 ">
+                    <input type="text " class="form-control" placeholder="Keyword Search" id="search_input">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary " type="button " onclick="search_google()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container " id="search_list">
+
+    </div>
+
+
     <!-- Google OAuth -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Optional JavaScript -->
