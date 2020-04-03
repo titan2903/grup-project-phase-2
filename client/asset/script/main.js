@@ -1,18 +1,24 @@
 $(document).ready(() => {
     console.log(localStorage.getItem('token'))
-    if (!localStorage.getItem('token') || localStorage.getItem('token') !== '') {
+    if (!localStorage.getItem('token') || localStorage.getItem('token') === '') {
         $('#link_search').hide()
+        $('#link_search_google').hide()
         $('#register').hide()
         $('#search_movie').hide()
         $('#movie-list').hide()
+        $('#search_google').hide()
+        $('#search_list').hide()
     } else {
         $('#link_search').show()
+        $('#link_search_google').show()
         $('#link_register').hide()
         $('#link_login').hide()
         $('#register').hide()
         $('#login').hide()
         $('#search_movie').show()
         $('#movie-list').show()
+        $('#search_google').hide()
+        $('#search_list').hide()
     }
 
     register = () => {
@@ -20,6 +26,8 @@ $(document).ready(() => {
         $('#login').hide()
         $('#search_movie').hide()
         $('#movie-list').hide()
+        $('#search_google').hide()
+        $('#search_list').hide()
     }
 
     login = () => {
@@ -27,6 +35,8 @@ $(document).ready(() => {
         $('#login').show()
         $('#search_movie').hide()
         $('#movie-list').hide()
+        $('#search_google').hide()
+        $('#search_list').hide()
     }
 
     movie = () => {
@@ -34,9 +44,19 @@ $(document).ready(() => {
         $('#login').hide()
         $('#search_movie').show()
         $('#movie-list').show()
+        $('#search_google').hide()
+        $('#search_list').hide()
     }
 
-    //Regisster
+    google = () => {
+            $('#register').hide()
+            $('#login').hide()
+            $('#search_movie').hide()
+            $('#movie-list').hide()
+            $('#search_google').show()
+            $('#search_list').show()
+        }
+        //Regisster
 
     $('#formRegister').submit((e) => {
         e.preventDefault()
@@ -67,6 +87,7 @@ $(document).ready(() => {
             })
     })
 
+    //Login
     $('#formLogin').submit((e) => {
         e.preventDefault()
 
@@ -100,4 +121,31 @@ $(document).ready(() => {
                 $('#error').append(`<div class="alert alert-danger" role="alert"> Error login dari server: ${err} </div>`)
             })
     })
+
+    //search
+    search_google = () => {
+        let key = $('#search_input').val()
+            // console.log(key)
+
+        $.ajax({
+                method: 'GET',
+                url: `http://localhost:3000/api/google_search/${key}`
+            })
+            .done(result => {
+                let data = ``
+                for (let i = 0; i < result.length; i++) {
+                    data += `<hr>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-md-8">
+                            <a href="${result[i].link}"> <h5 class="card-title">${result[i].title}</h5> </a>
+                            <p class="card-text"> ${result[i].snippet} </p>
+                        </div>
+                    </div>`
+                }
+                $('#search_list').append(data)
+            })
+            .fail(err => {
+                $('#error').append(`<div class="alert alert-danger" role="alert"> Error login dari server: ${err} </div>`)
+            })
+    }
 })
