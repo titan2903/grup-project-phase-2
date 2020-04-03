@@ -1,13 +1,13 @@
 const axios = require('axios');
 require('dotenv').config();
 
-class APIControllers {
-    static omdb(req, res) {
+class ImdbId {
+    static imdbId(req, res) {
         const title = req.params.title
 
         axios({
             method: 'get',
-            url: `http://www.omdbapi.com/?apikey=${process.env.API_OMDb}&s=${title}`
+            url: `http://www.omdbapi.com/?apikey=${process.env.API_OMDb}&i=${title}`
         })
             .then((result) => {
                 // console.log(result)
@@ -22,4 +22,4 @@ class APIControllers {
     }
 }
 
-module.exports = APIControllers
+module.exports = ImdbId
