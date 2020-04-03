@@ -18,7 +18,9 @@ class APIControllers {
                 res.status(500).json({
                     message: err
                 })
-          
+            })
+    }
+    
       static holiday(req, res){
         const country = req.params.ISOcountry
         const year = req.params.year
