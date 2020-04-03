@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- Google OAuth -->
+    <meta name="google-signin-client_id" content="606999719099-urdmclon9g18j6es9ocvf9qpc9j6el09.apps.googleusercontent.com">
     <title>Movie List</title>
 </head>
 
@@ -79,6 +81,8 @@
                 <br>
                 <center>
                     <p> Sign In with Google </p>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <a href="#" onclick="signOut();">Sign out</a>
                 </center>
             </div>
         </div>
@@ -123,6 +127,8 @@
     <div class="row " id="movie-list ">
 
     </div>
+    <!-- Google OAuth -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js " integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=" anonymous "></script>
