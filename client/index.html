@@ -22,7 +22,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
-                <a class="nav-item nav-link active" id="link_search" href="#">Search Movies</a>
+                <a class="nav-item nav-link active" id="link_search" href="#" onclick="movie()">Search Movies</a>
+                <a class="nav-item nav-link active" id="link_search_google" href="#" onclick="google()">Search Cinema</a>
                 <a class="nav-item nav-link active" id="link_register" href="#" onclick="register()">Sign Up</a>
                 <a class="nav-item nav-link active" id="link_login" href="#" onclick="login()">Sign In</a>
             </div>
@@ -104,10 +105,29 @@
 
     <hr>
 
-
     <div class="row " id="movie-list ">
 
     </div>
+
+    <!-- Search with google -->
+    <div class="container " id="search_google">
+        <div class="row mt-3 justify-content-center ">
+            <div class="col-md-8 ">
+                <h1 class="text-center ">Search Cinema</h1>
+                <div class="input-group mb-3 ">
+                    <input type="text " class="form-control" placeholder="Keyword Search" id="search_input">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary " type="button " onclick="search_google()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container " id="search_list">
+
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js " integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=" anonymous "></script>
