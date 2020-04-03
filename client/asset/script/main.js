@@ -71,8 +71,8 @@ $(document).ready(function () {
                                     <li class="list-group-item"><h6>Language: `+ movie.Language + `</h6></li>
                                     <li class="list-group-item"><h6>Genre: `+ movie.Genre + `</h6></li>
                                     <li class="list-group-item"><h6>Director: `+ movie.Director + `</h6></li>
-                                    <li class="list-group-item"><h6>Writer: `+ movie.Writer + `</h6></li>
                                     <li class="list-group-item"><h6>Actors: `+ movie.Actors + `</h6></li>
+                                    <li class="list-group-item"><h6>Writer: `+ movie.Writer + `</h6></li>
                                     <li class="list-group-item"><h6>Plot: `+ movie.Plot + `</h6></li>
                                     <li class="list-group-item"><h6>Production: `+ movie.Production + `</h6></li>
                                 </ul>
