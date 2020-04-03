@@ -7,6 +7,11 @@ Developer:
 - Jessica Sugianto
 - Hamzah Abdullah Mubarak
 
+3rd Party we used in this Project:
+- Google Search
+- OMDb
+- Calenderific
+
 An Simple Movie List Application with some features:
 1. Search Movie by Title
 2. Search Detail Movie by ID
